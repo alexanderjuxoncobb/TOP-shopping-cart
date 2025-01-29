@@ -28,6 +28,7 @@ body {
   /* place-items: center; */
   min-width: 320px;
   min-height: 100vh;
+  overscroll-behavior: none;
 }
 
 h1 {
@@ -68,5 +69,5 @@ button:focus-visible {
 }
 
 * {
-  border: .1px solid red
+  border: 0.1px solid red;
 }

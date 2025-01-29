@@ -1,0 +1,23 @@
+.gridContainer {
+  display: grid;
+  /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+  /* grid-template-columns: 100px 1fr; */
+  gap: 20px;
+  justify-items: center;
+}
+
+.gridContainer img {
+  width: 200px;
+  aspect-ratio: 1;
+  object-fit: contain;
+  background-color: white;
+}
+
+.cartItem {
+  display: flex;
+  align-items: center;
+}
+
+h2 {
+  margin-left: 20px;
+}

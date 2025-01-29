@@ -1,12 +1,14 @@
 import NavigationBar from "../NavigationBar/NavigationBar";
 import ShoppingGrid from "../ShoppingGrid/ShoppingGrid";
 
-function Home() {
+function Home({ basket, setBasket }) {
+  console.log(basket);
+
   return (
     <>
-      <NavigationBar />
+      <NavigationBar basket={basket} setBasket={setBasket} />
       <div>Home</div>
-      <ShoppingGrid />
+      <ShoppingGrid basket={basket} setBasket={setBasket} />
     </>
   );
 }
