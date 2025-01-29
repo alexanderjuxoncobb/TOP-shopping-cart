@@ -17,10 +17,12 @@ function ShoppingGrid({ basket, setBasket }) {
     setData();
   }, []);
 
-  function addToCart(itemId) {
+  function addToCart(itemId, quantity = 1) {
     console.log(basket);
     const currentBasket = [...basket];
-    currentBasket.push(products.find((item) => item.id === itemId));
+    for (let i = 0; i < quantity; i++) {
+      currentBasket.push(products.find((item) => item.id === itemId));
+    }
     setBasket(currentBasket);
   }
 
@@ -29,9 +31,46 @@ function ShoppingGrid({ basket, setBasket }) {
       {products.map((item) => (
         <div key={item.id}>
           <img src={item.image} alt={item.description} />
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              width: "80%",
+              marginLeft: "10%",
+            }}
+          >
             <div>description</div>
-            <button onClick={() => addToCart(item.id)}>+</button>
+            <div
+              style={{
+                display: "flex",
+                width: "fit-content",
+                // flex: "0 0 auto",
+                justifyContent: "flex-end",
+              }}
+            >
+              <input
+                type="number"
+                min="0"
+                max="100"
+                step="1"
+                defaultValue={1}
+                id={`quantity-${item.id}`}
+                style={{ width: "50%" }}
+              />
+              <button
+                onClick={() => {
+                  addToCart(
+                    item.id,
+                    parseInt(
+                      document.querySelector(`#quantity-${item.id}`).value
+                    )
+                  );
+                  document.querySelector(`#quantity-${item.id}`).value = 1;
+                }}
+              >
+                +
+              </button>
+            </div>
           </div>
         </div>
       ))}
