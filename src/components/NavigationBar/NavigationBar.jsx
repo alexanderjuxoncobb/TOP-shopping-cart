@@ -24,7 +24,7 @@ function NavigationBar(props) {
           <button onClick={() => navigate("/cart")} className={styles.button}>
             CART
           </button>
-          {props.basket.length > 0 && (
+          {props.basket && props.basket.length > 0 && (
             <div className={styles.badge}>{props.basket.length}</div>
           )}
         </div>
